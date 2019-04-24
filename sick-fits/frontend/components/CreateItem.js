@@ -36,7 +36,7 @@ class CreateItem extends Component {
 	};
 	handleChange = (e) => {
 		const { name, type, value } = e.target;
-		const val = type === 'number' ? parseFloat(value) : value;
+		const val = type === 'number' ? parseFloat(value) * 100 : value;
 		this.setState({ [name]: val })
 	};
 	 uploadFile =  async e => {
