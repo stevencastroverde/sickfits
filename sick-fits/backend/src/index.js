@@ -1,4 +1,5 @@
 const cookieParser = require('cookie-parser');
+const morgan = require('morgan');
 const jwt = require('jsonwebtoken');
 require('dotenv').config({ path: 'variables.env'});
 const createServer = require('./createServer');
@@ -16,10 +17,10 @@ server.express.use((req, res, next) => {
     }
     next();
 });
-
+server.express.use(morgan('combined'));
 server.start({
     cors: {
-        credentials: true,
+        credentials: false,
         origin: process.env.FRONTEND_URL,
     },
 }, serverDetails => {
