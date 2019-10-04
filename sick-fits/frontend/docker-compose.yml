@@ -1,0 +1,16 @@
+version: '3.7'
+networks: 
+  default:
+    external:
+      name: backend_testing
+services:
+  front-end:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:7777'
+    volumes:
+      - .:/app
+    networks: 
+      - backend_testing
