@@ -20,7 +20,7 @@ server.express.use((req, res, next) => {
 server.express.use(morgan('combined'));
 server.start({
     cors: {
-        credentials: false,
+        credentials: true,
         origin: process.env.FRONTEND_URL,
     },
 }, serverDetails => {
